@@ -1,6 +1,7 @@
 const conect = require('../conection_db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const jwt_secret = require('../jwt_secret');
 
 const userLogin = async (req, res) => {
     const {email, senha} = req.body;
@@ -24,7 +25,7 @@ const userLogin = async (req, res) => {
             return res.status(400).json('Email ou senha incorretos');
         }
 
-        const token = jwt.sign({id: usuario.id}, 'passwordToken', {expiresIn: '1d'});
+        const token = jwt.sign({id: usuario.id}, jwt_secret, {expiresIn: '1d'});
 
         const {senha: senhaUsuario, ...dataUser} = usuario;
 
