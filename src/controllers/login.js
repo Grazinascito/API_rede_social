@@ -7,7 +7,7 @@ const userLogin = async (req, res) => {
     const {email, senha} = req.body;
 
     if(!email || !senha){
-        return res.status(404).json('Email ou senha são obrigatórios');
+        return res.status(404).json('Email e senha são obrigatórios');
     }
 
     try{
