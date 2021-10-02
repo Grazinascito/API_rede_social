@@ -8,6 +8,6 @@ CREATE TABLE IF NOT EXISTS usuarios (
 CREATE TABLE IF NOT EXISTS postagens(
     id SERIAL PRIMARY KEY,
     usuario_id INTEGER NOT NULL,
-    texto TEXT NOT NULL.
+    texto TEXT NOT NULL,
     FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
 );
